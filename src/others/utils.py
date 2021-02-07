@@ -22,9 +22,9 @@ def process(params):
     current_time = time.strftime('%Y-%m-%d-%H-%M-%S', time.localtime())
     tmp_dir = os.path.join(temp_dir, "rouge-tmp-{}-{}".format(current_time, pool_id))
     if not os.path.isdir(tmp_dir):
-        os.mkdir(tmp_dir)
-        os.mkdir(tmp_dir + "/candidate")
-        os.mkdir(tmp_dir + "/reference")
+        os.makedirs(tmp_dir, exist_ok=True)
+        os.makedirs(tmp_dir + "/candidate", exist_ok=True)
+        os.makedirs(tmp_dir + "/reference", exist_ok=True)
     try:
 
         for i in range(cnt):
@@ -62,9 +62,9 @@ def test_rouge(temp_dir, cand, ref):
     current_time = time.strftime('%Y-%m-%d-%H-%M-%S', time.localtime())
     tmp_dir = os.path.join(temp_dir, "rouge-tmp-{}".format(current_time))
     if not os.path.isdir(tmp_dir):
-        os.mkdir(tmp_dir)
-        os.mkdir(tmp_dir + "/candidate")
-        os.mkdir(tmp_dir + "/reference")
+        os.makedirs(tmp_dir, exist_ok=True)
+        os.makedirs(tmp_dir + "/candidate", exist_ok=True)
+        os.makedirs(tmp_dir + "/reference", exist_ok=True)
     try:
 
         for i in range(cnt):
